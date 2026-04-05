@@ -4,581 +4,112 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="BoGuS Prints — 3D Printed Geek Gear & Collector Displays. Peças personalizadas, gaming props e coleccionismo em impressão 3D.">
-<meta property="og:title" content="BoGuS Prints">
-<meta property="og:description" content="3D Printed Geek Gear & Collector Displays">
-<meta property="og:image" content="https://www.instagram.com/bogus.prints/">
 <title>BoGuS Prints — 3D Printed Geek Gear</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --neon-green: #00FF41;
-    --neon-purple: #B026FF;
-    --dark-bg: #080810;
-    --card-bg: #0d0d1a;
-    --grid-color: rgba(0,255,65,0.07);
-    --border-glow: rgba(0,255,65,0.3);
-    --text-dim: #8a8aaa;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--dark-bg);
-    color: #e0e0e0;
-    font-family: 'Exo 2', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image:
-      linear-gradient(var(--grid-color) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
-  }
-  body::after {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
-    animation: scan 4s linear infinite;
-    pointer-events: none;
-    z-index: 999;
-  }
-  @keyframes scan {
-    0% { top: 0; opacity: 1; }
-    90% { opacity: 0.6; }
-    100% { top: 100vh; opacity: 0; }
-  }
+  :root { --neon-green:#00FF41; --neon-purple:#B026FF; --dark-bg:#080810; --card-bg:#0d0d1a; --grid-color:rgba(0,255,65,.07); --border-glow:rgba(0,255,65,.3); --text-dim:#8a8aaa; }
+  *{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
+  body{background:var(--dark-bg);color:#e0e0e0;font-family:'Exo 2',sans-serif;min-height:100vh;overflow-x:hidden}
+  body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(var(--grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--grid-color) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+  body::after{content:'';position:fixed;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,transparent,var(--neon-green),transparent);animation:scan 4s linear infinite;pointer-events:none;z-index:999}
+  @keyframes scan{0%{top:0;opacity:1}90%{opacity:.6}100%{top:100vh;opacity:0}}
+  nav{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px 40px;background:rgba(8,8,16,.92);border-bottom:1px solid var(--border-glow);backdrop-filter:blur(10px);z-index:100}
+  .nav-logo{font-family:'Orbitron',monospace;font-weight:900;font-size:20px;color:var(--neon-green);text-shadow:0 0 20px rgba(0,255,65,.6);letter-spacing:2px;text-decoration:none}
+  .nav-logo span{color:var(--neon-purple)}
+  nav ul{display:flex;list-style:none;gap:32px}
+  nav a{font-family:'Share Tech Mono',monospace;color:var(--text-dim);text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--neon-green)}
+  .nav-ig{display:flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid var(--border-glow);border-radius:4px;color:var(--neon-green) !important;font-size:12px !important;transition:background .2s !important}
+  .nav-ig:hover{background:rgba(0,255,65,.08) !important}
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 40px 80px;z-index:1}
+  .hero-tag{font-family:'Share Tech Mono',monospace;color:var(--neon-green);font-size:12px;letter-spacing:4px;text-transform:uppercase;margin-bottom:24px;opacity:.8}
+  .hero-title{font-family:'Orbitron',monospace;font-weight:900;font-size:clamp(52px,10vw,96px);line-height:.95;margin-bottom:8px}
+  .hero-title .bogus{color:var(--neon-green);text-shadow:0 0 40px rgba(0,255,65,.5),0 0 80px rgba(0,255,65,.2);display:block;animation:glitch 6s infinite}
+  .hero-title .prints{color:var(--neon-purple);text-shadow:0 0 40px rgba(176,38,255,.5),0 0 80px rgba(176,38,255,.2);display:block}
+  @keyframes glitch{0%,95%{text-shadow:0 0 40px rgba(0,255,65,.5),0 0 80px rgba(0,255,65,.2)}96%{text-shadow:-2px 0 var(--neon-purple),2px 0 var(--neon-green);transform:translateX(2px)}97%{text-shadow:2px 0 var(--neon-purple),-2px 0 var(--neon-green);transform:translateX(-2px)}100%{text-shadow:0 0 40px rgba(0,255,65,.5),0 0 80px rgba(0,255,65,.2);transform:translateX(0)}}
+  .hero-sub{font-family:'Share Tech Mono',monospace;font-size:14px;color:var(--text-dim);letter-spacing:3px;text-transform:uppercase;margin:24px 0 48px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .btn-primary{padding:14px 36px;background:var(--neon-green);color:#000;font-family:'Orbitron',monospace;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;display:inline-block;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:box-shadow .2s}
+  .btn-primary:hover{box-shadow:0 0 30px rgba(0,255,65,.5)}
+  .btn-outline{padding:14px 36px;background:transparent;color:var(--neon-purple);font-family:'Orbitron',monospace;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid var(--neon-purple);cursor:pointer;display:inline-block;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background .2s}
+  .btn-outline:hover{background:rgba(176,38,255,.1)}
+  .ticker{position:relative;z-index:1;background:rgba(0,255,65,.04);border-top:1px solid var(--border-glow);border-bottom:1px solid var(--border-glow);padding:12px 0;overflow:hidden}
+  .ticker-inner{display:flex;gap:60px;animation:ticker 25s linear infinite;white-space:nowrap;width:max-content}
+  .ticker-item{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:3px;color:var(--neon-green);text-transform:uppercase;opacity:.7}
+  .ticker-item::before{content:'◆ ';color:var(--neon-purple)}
+  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .section-wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:100px 40px}
+  .section-header{margin-bottom:60px;display:flex;align-items:baseline;gap:24px;flex-wrap:wrap}
+  .section-num{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--neon-green);opacity:.5}
+  .section-title{font-family:'Orbitron',monospace;font-weight:700;font-size:28px;color:#fff;letter-spacing:2px;text-transform:uppercase}
+  .section-line{flex:1;min-width:40px;height:1px;background:linear-gradient(90deg,var(--border-glow),transparent)}
+  .section-link{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--neon-purple);text-decoration:none;white-space:nowrap;letter-spacing:2px;transition:opacity .2s}
+  .section-link:hover{opacity:.7}
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 40px;
-    background: rgba(8,8,16,0.92);
-    border-bottom: 1px solid var(--border-glow);
-    backdrop-filter: blur(10px);
-    z-index: 100;
-  }
-  .nav-logo {
-    font-family: 'Orbitron', monospace;
-    font-weight: 900;
-    font-size: 20px;
-    color: var(--neon-green);
-    text-shadow: 0 0 20px rgba(0,255,65,0.6);
-    letter-spacing: 2px;
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--neon-purple); }
-  nav ul { display: flex; list-style: none; gap: 32px; }
-  nav a {
-    font-family: 'Share Tech Mono', monospace;
-    color: var(--text-dim);
-    text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  nav a:hover { color: var(--neon-green); }
-  .nav-ig {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border: 1px solid var(--border-glow);
-    border-radius: 4px;
-    color: var(--neon-green) !important;
-    font-size: 12px !important;
-    transition: background 0.2s !important;
-  }
-  .nav-ig:hover { background: rgba(0,255,65,0.08) !important; }
+  /* DESTAQUE GRID */
+  .destaque-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,260px);gap:3px}
+  .destaque-item{position:relative;background:var(--card-bg);border:1px solid rgba(0,255,65,.08);overflow:hidden;cursor:pointer;transition:border-color .3s}
+  .destaque-item:first-child{grid-row:span 2}
+  .destaque-item:hover{border-color:var(--border-glow)}
+  .destaque-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+  .destaque-item:hover img{transform:scale(1.06)}
+  .destaque-overlay{position:absolute;inset:0;background:rgba(8,8,16,.8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;transition:opacity .3s}
+  .destaque-item:hover .destaque-overlay{opacity:1}
+  .destaque-cat{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--neon-purple);letter-spacing:3px;text-transform:uppercase}
+  .destaque-title{font-family:'Orbitron',monospace;font-size:14px;color:var(--neon-green);letter-spacing:1px;text-transform:uppercase;text-align:center;padding:0 12px}
+  .destaque-cta{text-align:center;margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
-  /* HERO */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 120px 40px 80px;
-    z-index: 1;
-  }
-  .hero-tag {
-    font-family: 'Share Tech Mono', monospace;
-    color: var(--neon-green);
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    opacity: 0.8;
-  }
-  .hero-title {
-    font-family: 'Orbitron', monospace;
-    font-weight: 900;
-    font-size: clamp(52px, 10vw, 96px);
-    line-height: 0.95;
-    margin-bottom: 8px;
-  }
-  .hero-title .bogus {
-    color: var(--neon-green);
-    text-shadow: 0 0 40px rgba(0,255,65,0.5), 0 0 80px rgba(0,255,65,0.2);
-    display: block;
-    animation: glitch 6s infinite;
-  }
-  .hero-title .prints {
-    color: var(--neon-purple);
-    text-shadow: 0 0 40px rgba(176,38,255,0.5), 0 0 80px rgba(176,38,255,0.2);
-    display: block;
-  }
-  @keyframes glitch {
-    0%, 95% { text-shadow: 0 0 40px rgba(0,255,65,0.5), 0 0 80px rgba(0,255,65,0.2); }
-    96% { text-shadow: -2px 0 var(--neon-purple), 2px 0 var(--neon-green); transform: translateX(2px); }
-    97% { text-shadow: 2px 0 var(--neon-purple), -2px 0 var(--neon-green); transform: translateX(-2px); }
-    100% { text-shadow: 0 0 40px rgba(0,255,65,0.5), 0 0 80px rgba(0,255,65,0.2); transform: translateX(0); }
-  }
-  .hero-sub {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 14px;
-    color: var(--text-dim);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin: 24px 0 48px;
-  }
-  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-  .btn-primary {
-    padding: 14px 36px;
-    background: var(--neon-green);
-    color: #000;
-    font-family: 'Orbitron', monospace;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-    transition: box-shadow 0.2s;
-    display: inline-block;
-  }
-  .btn-primary:hover { box-shadow: 0 0 30px rgba(0,255,65,0.5); }
-  .btn-outline {
-    padding: 14px 36px;
-    background: transparent;
-    color: var(--neon-purple);
-    font-family: 'Orbitron', monospace;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1px solid var(--neon-purple);
-    cursor: pointer;
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-    transition: background 0.2s;
-    display: inline-block;
-  }
-  .btn-outline:hover { background: rgba(176,38,255,0.1); }
-
-  /* TICKER */
-  .ticker {
-    position: relative;
-    z-index: 1;
-    background: rgba(0,255,65,0.04);
-    border-top: 1px solid var(--border-glow);
-    border-bottom: 1px solid var(--border-glow);
-    padding: 12px 0;
-    overflow: hidden;
-  }
-  .ticker-inner {
-    display: flex;
-    gap: 60px;
-    animation: ticker 25s linear infinite;
-    white-space: nowrap;
-    width: max-content;
-  }
-  .ticker-item {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 3px;
-    color: var(--neon-green);
-    text-transform: uppercase;
-    opacity: 0.7;
-  }
-  .ticker-item::before { content: '◆ '; color: var(--neon-purple); }
-  @keyframes ticker {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* SECTIONS */
-  .section-wrap {
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 40px;
-  }
-  .section-header {
-    margin-bottom: 60px;
-    display: flex;
-    align-items: baseline;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .section-num {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
-    color: var(--neon-green);
-    opacity: 0.5;
-  }
-  .section-title {
-    font-family: 'Orbitron', monospace;
-    font-weight: 700;
-    font-size: 28px;
-    color: #fff;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-  .section-line {
-    flex: 1;
-    min-width: 40px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--border-glow), transparent);
-  }
-  .section-link {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: var(--neon-purple);
-    text-decoration: none;
-    white-space: nowrap;
-    letter-spacing: 2px;
-    transition: opacity 0.2s;
-  }
-  .section-link:hover { opacity: 0.7; }
-
-  /* GALLERY */
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-  .gallery-item {
-    position: relative;
-    background: var(--card-bg);
-    border: 1px solid rgba(0,255,65,0.1);
-    aspect-ratio: 1;
-    overflow: hidden;
-    cursor: pointer;
-    transition: border-color 0.3s;
-  }
-  .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
-  .gallery-item:hover { border-color: var(--border-glow); }
-  .gallery-item img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s;
-  }
-  .gallery-item:hover img { transform: scale(1.05); }
-  .gallery-placeholder {
-    width: 100%; height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-  .gallery-icon {
-    font-family: 'Orbitron', monospace;
-    font-size: 28px;
-    color: rgba(0,255,65,0.15);
-  }
-  .gallery-placeholder-text {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: center;
-    color: rgba(0,255,65,0.2);
-    line-height: 1.8;
-  }
-  .gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(8,8,16,0.85);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .gallery-item:hover .gallery-overlay { opacity: 1; }
-  .overlay-title {
-    font-family: 'Orbitron', monospace;
-    font-size: 14px;
-    color: var(--neon-green);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 0 16px;
-  }
-  .overlay-cat {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: var(--neon-purple);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-  .overlay-btn {
-    margin-top: 8px;
-    padding: 6px 16px;
-    border: 1px solid var(--border-glow);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    color: var(--neon-green);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .overlay-btn:hover { background: rgba(0,255,65,0.1); }
-  .gallery-cta { text-align: center; margin-top: 40px; }
+  /* STATS */
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:0}
+  .stat-card{background:var(--card-bg);border:1px solid rgba(0,255,65,.1);padding:32px 24px;text-align:center}
+  .stat-num{font-family:'Orbitron',monospace;font-weight:900;font-size:40px;color:var(--neon-green);text-shadow:0 0 20px rgba(0,255,65,.4)}
+  .stat-label{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-dim);letter-spacing:2px;text-transform:uppercase;margin-top:8px}
 
   /* SERVICES */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2px;
-  }
-  .service-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(0,255,65,0.1);
-    padding: 40px 32px;
-    position: relative;
-    transition: border-color 0.3s;
-    overflow: hidden;
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px; height: 0;
-    background: var(--neon-green);
-    transition: height 0.4s ease;
-  }
-  .service-card:hover { border-color: var(--border-glow); }
-  .service-card:hover::before { height: 100%; }
-  .service-num {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: var(--neon-green);
-    opacity: 0.4;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-  }
-  .service-title {
-    font-family: 'Orbitron', monospace;
-    font-weight: 700;
-    font-size: 18px;
-    color: #fff;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .service-desc {
-    font-size: 14px;
-    color: var(--text-dim);
-    line-height: 1.9;
-  }
-  .service-tag {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 4px 12px;
-    border: 1px solid var(--neon-purple);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    color: var(--neon-purple);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px}
+  .service-card{background:var(--card-bg);border:1px solid rgba(0,255,65,.1);padding:40px 32px;position:relative;transition:border-color .3s;overflow:hidden}
+  .service-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--neon-green);transition:height .4s ease}
+  .service-card:hover{border-color:var(--border-glow)}
+  .service-card:hover::before{height:100%}
+  .service-num{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--neon-green);opacity:.4;letter-spacing:2px;margin-bottom:20px}
+  .service-title{font-family:'Orbitron',monospace;font-weight:700;font-size:18px;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+  .service-desc{font-size:14px;color:var(--text-dim);line-height:1.9}
+  .service-tag{display:inline-block;margin-top:20px;padding:4px 12px;border:1px solid var(--neon-purple);font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--neon-purple);letter-spacing:2px;text-transform:uppercase}
 
   /* ORDER */
-  .order-box {
-    background: var(--card-bg);
-    border: 1px solid var(--border-glow);
-    padding: 60px;
-    position: relative;
-    overflow: hidden;
-    max-width: 800px;
-    margin: 0 auto;
+  .order-box{background:var(--card-bg);border:1px solid var(--border-glow);padding:60px;position:relative;overflow:hidden;max-width:800px;margin:0 auto}
+  .order-box::after{content:'ENCOMENDA';position:absolute;right:-30px;top:50%;transform:rotate(90deg) translateX(-50%);font-family:'Orbitron',monospace;font-size:72px;font-weight:900;color:rgba(0,255,65,.025);letter-spacing:8px;white-space:nowrap;pointer-events:none}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+  .form-group{display:flex;flex-direction:column;gap:8px}
+  .form-group.full{grid-column:1/-1}
+  label{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--neon-green);letter-spacing:3px;text-transform:uppercase;opacity:.7}
+  input,textarea,select{background:rgba(0,255,65,.03);border:1px solid rgba(0,255,65,.2);color:#e0e0e0;padding:12px 16px;font-family:'Exo 2',sans-serif;font-size:14px;outline:none;transition:border-color .2s;width:100%;appearance:none}
+  input:focus,textarea:focus,select:focus{border-color:var(--neon-green);background:rgba(0,255,65,.05)}
+  select option{background:#0d0d1a;color:#e0e0e0}
+  textarea{height:120px;resize:vertical}
+  .submit-btn{margin-top:32px;padding:16px 48px;background:var(--neon-green);color:#000;font-family:'Orbitron',monospace;font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:box-shadow .2s;width:100%}
+  .submit-btn:hover{box-shadow:0 0 40px rgba(0,255,65,.4)}
+  .form-note{margin-top:16px;font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(138,138,170,.5);text-align:center;letter-spacing:1px}
+  footer{position:relative;z-index:1;border-top:1px solid var(--border-glow);padding:48px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+  .footer-logo{font-family:'Orbitron',monospace;font-weight:900;font-size:22px;color:var(--neon-green);text-shadow:0 0 20px rgba(0,255,65,.4);text-decoration:none}
+  .footer-logo span{color:var(--neon-purple)}
+  .footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap}
+  .footer-links a{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text-dim);text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:color .2s}
+  .footer-links a:hover{color:var(--neon-green)}
+  .footer-copy{font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(138,138,170,.35);letter-spacing:1px;width:100%;text-align:center;margin-top:24px;border-top:1px solid rgba(0,255,65,.05);padding-top:24px}
+  .toast{position:fixed;bottom:32px;right:32px;background:var(--card-bg);border:1px solid var(--neon-green);padding:16px 24px;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--neon-green);letter-spacing:1px;z-index:9999;transform:translateY(100px);opacity:0;transition:all .3s}
+  .toast.show{transform:translateY(0);opacity:1}
+  @media(max-width:768px){
+    nav{padding:12px 20px} nav ul{display:none}
+    .section-wrap{padding:60px 20px}
+    .destaque-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+    .destaque-item:first-child{grid-row:span 1}
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .order-box{padding:32px 20px} .order-box::after{display:none}
+    .form-row{grid-template-columns:1fr}
+    footer{padding:32px 20px}
   }
-  .order-box::after {
-    content: 'ENCOMENDA';
-    position: absolute;
-    right: -30px; top: 50%;
-    transform: rotate(90deg) translateX(-50%);
-    font-family: 'Orbitron', monospace;
-    font-size: 72px;
-    font-weight: 900;
-    color: rgba(0,255,65,0.025);
-    letter-spacing: 8px;
-    white-space: nowrap;
-    pointer-events: none;
-  }
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  .form-group { display: flex; flex-direction: column; gap: 8px; }
-  .form-group.full { grid-column: 1 / -1; }
-  label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: var(--neon-green);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    opacity: 0.7;
-  }
-  input, textarea, select {
-    background: rgba(0,255,65,0.03);
-    border: 1px solid rgba(0,255,65,0.2);
-    color: #e0e0e0;
-    padding: 12px 16px;
-    font-family: 'Exo 2', sans-serif;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-    appearance: none;
-  }
-  input:focus, textarea:focus, select:focus {
-    border-color: var(--neon-green);
-    background: rgba(0,255,65,0.05);
-  }
-  select option { background: #0d0d1a; color: #e0e0e0; }
-  textarea { height: 120px; resize: vertical; }
-  .submit-btn {
-    margin-top: 32px;
-    padding: 16px 48px;
-    background: var(--neon-green);
-    color: #000;
-    font-family: 'Orbitron', monospace;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-    transition: box-shadow 0.2s;
-    width: 100%;
-  }
-  .submit-btn:hover { box-shadow: 0 0 40px rgba(0,255,65,0.4); }
-  .form-note {
-    margin-top: 16px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: rgba(138,138,170,0.5);
-    text-align: center;
-    letter-spacing: 1px;
-  }
-
-  /* FOOTER */
-  footer {
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid var(--border-glow);
-    padding: 48px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
-    max-width: 100%;
-  }
-  .footer-logo {
-    font-family: 'Orbitron', monospace;
-    font-weight: 900;
-    font-size: 22px;
-    color: var(--neon-green);
-    text-shadow: 0 0 20px rgba(0,255,65,0.4);
-    text-decoration: none;
-  }
-  .footer-logo span { color: var(--neon-purple); }
-  .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
-  .footer-links a {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
-    color: var(--text-dim);
-    text-decoration: none;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--neon-green); }
-  .footer-copy {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: rgba(138,138,170,0.35);
-    letter-spacing: 1px;
-    width: 100%;
-    text-align: center;
-    margin-top: 24px;
-    border-top: 1px solid rgba(0,255,65,0.05);
-    padding-top: 24px;
-  }
-
-  /* TOAST */
-  .toast {
-    position: fixed;
-    bottom: 32px; right: 32px;
-    background: var(--card-bg);
-    border: 1px solid var(--neon-green);
-    padding: 16px 24px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 13px;
-    color: var(--neon-green);
-    letter-spacing: 1px;
-    z-index: 9999;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 0.3s;
-  }
-  .toast.show { transform: translateY(0); opacity: 1; }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    nav { padding: 12px 20px; }
-    nav ul { display: none; }
-    .section-wrap { padding: 60px 20px; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-item.wide { grid-column: span 2; }
-    .order-box { padding: 32px 20px; }
-    .form-row { grid-template-columns: 1fr; }
-    footer { padding: 32px 20px; }
-    .order-box::after { display: none; }
-  }
-  @media (max-width: 480px) {
-    .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-item.wide { grid-column: span 1; aspect-ratio: 1; }
-  }
+  @media(max-width:480px){.destaque-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -586,7 +117,7 @@
 <nav>
   <a href="#" class="nav-logo">BoGuS<span>.</span>Prints</a>
   <ul>
-    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="galeria.html">Galeria</a></li>
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="#encomenda">Encomenda</a></li>
     <li>
@@ -600,111 +131,58 @@
 
 <section class="hero">
   <p class="hero-tag">// Sistema iniciado — impressão 3D activa</p>
-  <h1 class="hero-title">
-    <span class="bogus">BoGuS</span>
-    <span class="prints">Prints</span>
-  </h1>
+  <h1 class="hero-title"><span class="bogus">BoGuS</span><span class="prints">Prints</span></h1>
   <p class="hero-sub">3D Printed Geek Gear &amp; Collector Displays</p>
   <div class="hero-cta">
-    <a href="#galeria" class="btn-primary">Ver Galeria</a>
+    <a href="galeria.html" class="btn-primary">Ver Galeria Completa</a>
     <a href="#encomenda" class="btn-outline">Fazer Encomenda</a>
   </div>
 </section>
 
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item">Geek Gear</span>
-    <span class="ticker-item">Collector Displays</span>
-    <span class="ticker-item">Peças Personalizadas</span>
-    <span class="ticker-item">Impressão FDM</span>
-    <span class="ticker-item">Low-Poly Art</span>
-    <span class="ticker-item">Gaming Props</span>
-    <span class="ticker-item">Figuras e Miniaturas</span>
-    <span class="ticker-item">Encomendas Abertas</span>
-    <span class="ticker-item">Geek Gear</span>
-    <span class="ticker-item">Collector Displays</span>
-    <span class="ticker-item">Peças Personalizadas</span>
-    <span class="ticker-item">Impressão FDM</span>
-    <span class="ticker-item">Low-Poly Art</span>
-    <span class="ticker-item">Gaming Props</span>
-    <span class="ticker-item">Figuras e Miniaturas</span>
-    <span class="ticker-item">Encomendas Abertas</span>
+    <span class="ticker-item">Suportes & Gaming</span><span class="ticker-item">D&D / Tabletop</span>
+    <span class="ticker-item">Luminárias & Decoração</span><span class="ticker-item">Personagens & Geek</span>
+    <span class="ticker-item">Portraits</span><span class="ticker-item">Porta-chaves</span>
+    <span class="ticker-item">Presentes Personalizados</span><span class="ticker-item">83 Peças no Catálogo</span>
+    <span class="ticker-item">Suportes & Gaming</span><span class="ticker-item">D&D / Tabletop</span>
+    <span class="ticker-item">Luminárias & Decoração</span><span class="ticker-item">Personagens & Geek</span>
+    <span class="ticker-item">Portraits</span><span class="ticker-item">Porta-chaves</span>
+    <span class="ticker-item">Presentes Personalizados</span><span class="ticker-item">83 Peças no Catálogo</span>
   </div>
 </div>
 
-<div id="galeria" class="section-wrap">
+<!-- DESTAQUES -->
+<div class="section-wrap">
   <div class="section-header">
     <span class="section-num">01</span>
-    <h2 class="section-title">Galeria</h2>
+    <h2 class="section-title">Em Destaque</h2>
     <div class="section-line"></div>
-    <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="section-link">Ver tudo no Instagram →</a>
+    <a href="galeria.html" class="section-link">Ver catálogo completo →</a>
   </div>
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <!-- SUBSTITUI src="" pelo caminho da tua imagem, ex: src="fotos/tartaruga.jpg" -->
-      <div class="gallery-placeholder">
-        <div class="gallery-icon">▲</div>
-        <div class="gallery-placeholder-text">Adiciona a tua foto aqui<br>src="fotos/imagem.jpg"</div>
-      </div>
-      <div class="gallery-overlay">
-        <span class="overlay-title">Low-Poly Turtle</span>
-        <span class="overlay-cat">Coleccionismo</span>
-        <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="overlay-btn">Ver no IG</a>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <div class="gallery-placeholder">
-        <div class="gallery-icon">◆</div>
-        <div class="gallery-placeholder-text">Adiciona a tua foto aqui<br>src="fotos/imagem.jpg"</div>
-      </div>
-      <div class="gallery-overlay">
-        <span class="overlay-title">Dino Display</span>
-        <span class="overlay-cat">Geek Gear</span>
-        <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="overlay-btn">Ver no IG</a>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <div class="gallery-placeholder">
-        <div class="gallery-icon">■</div>
-        <div class="gallery-placeholder-text">Adiciona a tua foto aqui<br>src="fotos/imagem.jpg"</div>
-      </div>
-      <div class="gallery-overlay">
-        <span class="overlay-title">Controller Stand</span>
-        <span class="overlay-cat">Gaming Props</span>
-        <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="overlay-btn">Ver no IG</a>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <div class="gallery-placeholder">
-        <div class="gallery-icon">●</div>
-        <div class="gallery-placeholder-text">Adiciona a tua foto aqui<br>src="fotos/imagem.jpg"</div>
-      </div>
-      <div class="gallery-overlay">
-        <span class="overlay-title">Gem Collection</span>
-        <span class="overlay-cat">Collector Display</span>
-        <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="overlay-btn">Ver no IG</a>
-      </div>
-    </div>
-    <div class="gallery-item wide">
-      <div class="gallery-placeholder" style="flex-direction:row; gap:32px;">
-        <div class="gallery-icon">★</div>
-        <div class="gallery-placeholder-text">Peça em destaque<br>src="fotos/destaque.jpg"</div>
-      </div>
-      <div class="gallery-overlay">
-        <span class="overlay-title">Peça em Destaque</span>
-        <span class="overlay-cat">Edição Especial</span>
-        <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="overlay-btn">Ver no IG</a>
-      </div>
-    </div>
+  <div class="destaque-grid" id="destaque-grid">
+    <div style="grid-column:1/-1;padding:60px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--text-dim);letter-spacing:2px;">A carregar destaques...</div>
   </div>
-  <div class="gallery-cta">
-    <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="btn-outline">
-      Seguir @bogus.prints para ver mais
-    </a>
+  <div class="destaque-cta">
+    <a href="galeria.html" class="btn-primary">Ver as 83 Peças</a>
+    <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="btn-outline">Seguir no Instagram</a>
   </div>
 </div>
 
-<div id="servicos" class="section-wrap" style="padding-top:0;">
+<!-- STATS -->
+<div style="position:relative;z-index:1;background:rgba(0,255,65,.02);border-top:1px solid rgba(0,255,65,.1);border-bottom:1px solid rgba(0,255,65,.1);padding:0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-num">83</div><div class="stat-label">Peças no catálogo</div></div>
+      <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">Categorias</div></div>
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Serviços</div></div>
+      <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Possibilidades</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVIÇOS -->
+<div id="servicos" class="section-wrap">
   <div class="section-header">
     <span class="section-num">02</span>
     <h2 class="section-title">Serviços</h2>
@@ -732,6 +210,7 @@
   </div>
 </div>
 
+<!-- ENCOMENDA -->
 <div id="encomenda" class="section-wrap" style="padding-top:0;">
   <div class="section-header">
     <span class="section-num">03</span>
@@ -740,14 +219,8 @@
   </div>
   <div class="order-box">
     <div class="form-row">
-      <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" placeholder="O teu nome" autocomplete="name">
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="email@exemplo.com" autocomplete="email">
-      </div>
+      <div class="form-group"><label for="nome">Nome</label><input type="text" id="nome" placeholder="O teu nome" autocomplete="name"></div>
+      <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="email@exemplo.com" autocomplete="email"></div>
     </div>
     <div class="form-row">
       <div class="form-group">
@@ -764,11 +237,7 @@
         <label for="material">Material Preferido</label>
         <select id="material">
           <option value="">Sem preferência</option>
-          <option>PLA</option>
-          <option>PETG</option>
-          <option>ABS</option>
-          <option>TPU (Flexível)</option>
-          <option>ASA</option>
+          <option>PLA</option><option>PETG</option><option>ABS</option><option>TPU (Flexível)</option><option>ASA</option>
         </select>
       </div>
     </div>
@@ -777,14 +246,14 @@
       <textarea id="descricao" placeholder="Descreve o que precisas — cor, dimensões, quantidade, referência..."></textarea>
     </div>
     <button class="submit-btn" onclick="submitOrder()">Enviar Pedido</button>
-    <p class="form-note">Podes também contactar directamente via Instagram: <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" style="color:var(--neon-purple); text-decoration:none;">@bogus.prints</a></p>
+    <p class="form-note">Podes também contactar directamente via Instagram: <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" style="color:var(--neon-purple);text-decoration:none;">@bogus.prints</a></p>
   </div>
 </div>
 
 <footer>
   <a href="#" class="footer-logo">BoGuS<span>.</span>Prints</a>
   <ul class="footer-links">
-    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="galeria.html">Galeria</a></li>
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="#encomenda">Encomenda</a></li>
     <li><a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener">Instagram</a></li>
@@ -792,25 +261,48 @@
   <p class="footer-copy">© 2025 BoGuS Prints — 3D Printed Geek Gear &amp; Collector Displays</p>
 </footer>
 
-<div class="toast" id="toast">Pedido preparado! Redireccionando para Instagram...</div>
+<div class="toast" id="toast">Pedido preparado! A redirecionar para Instagram...</div>
 
 <script>
-  function submitOrder() {
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const tipo = document.getElementById('tipo').value;
-    const desc = document.getElementById('descricao').value.trim();
-    if (!nome || !email || !tipo || !desc) {
-      alert('Por favor preenche todos os campos obrigatórios.');
-      return;
-    }
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => {
-      toast.classList.remove('show');
-      window.open('https://www.instagram.com/bogus.prints/', '_blank');
-    }, 1800);
-  }
+const DESTAQUES = [
+  { ficheiro:'Capacete-Halo-Suporte-Controlos.jpg', titulo:'Capacete Halo', categoria:'Suportes & Gaming' },
+  { ficheiro:'D&D-Espada-Dados.jpg',                titulo:'D&D Espada de Dados', categoria:'D&D / Tabletop' },
+  { ficheiro:'Candeeiro-Geode.jpg',                 titulo:'Candeeiro Geode', categoria:'Luminárias & Decoração' },
+  { ficheiro:'Cristal-Dragon.jpg',                  titulo:'Cristal Dragon', categoria:'Personagens & Geek' },
+  { ficheiro:'Portrait-Batman.jpg',                 titulo:'Portrait Batman', categoria:'Portraits' },
+  { ficheiro:'Luminaria-Transformers-Personalizavel.jpg', titulo:'Luminária Transformers', categoria:'Luminárias & Decoração' }
+];
+
+function carregarDestaques() {
+  const grid = document.getElementById('destaque-grid');
+  grid.innerHTML = '';
+  DESTAQUES.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'destaque-item';
+    if (idx === 0) div.style.gridRow = 'span 2';
+    div.innerHTML = `
+      <img src="img/${item.ficheiro}" alt="${item.titulo}" loading="lazy">
+      <div class="destaque-overlay">
+        <span class="destaque-cat">${item.categoria}</span>
+        <span class="destaque-title">${item.titulo}</span>
+      </div>`;
+    div.addEventListener('click', () => { window.location.href = 'galeria.html'; });
+    grid.appendChild(div);
+  });
+}
+
+function submitOrder() {
+  const nome  = document.getElementById('nome').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const tipo  = document.getElementById('tipo').value;
+  const desc  = document.getElementById('descricao').value.trim();
+  if (!nome || !email || !tipo || !desc) { alert('Por favor preenche todos os campos obrigatórios.'); return; }
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => { toast.classList.remove('show'); window.open('https://www.instagram.com/bogus.prints/', '_blank'); }, 1800);
+}
+
+carregarDestaques();
 </script>
 </body>
 </html>
