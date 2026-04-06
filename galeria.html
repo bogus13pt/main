@@ -151,6 +151,14 @@
   .lightbox-close { position:absolute; top:24px; right:32px; font-family:'Orbitron',monospace; font-size:20px; color:var(--text-dim); cursor:pointer; background:none; border:none; transition:color .2s; z-index:10; }
   .lightbox-close:hover { color:var(--neon-green); }
 
+  /* DISCLAIMER */
+  .disclaimer-bar{position:relative;z-index:1;background:rgba(176,38,255,.04);border-top:1px solid rgba(176,38,255,.2);border-bottom:1px solid rgba(176,38,255,.2);padding:28px 40px}
+  .disclaimer-inner{max-width:1400px;margin:0 auto}
+  .disclaimer-label{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--neon-purple);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;opacity:.8}
+  .disclaimer-text{font-family:'Exo 2',sans-serif;font-size:12px;color:rgba(138,138,170,.7);line-height:1.8;margin-bottom:10px}
+  .disclaimer-text:last-child{margin-bottom:0}
+  .disclaimer-divider{width:100%;height:1px;background:rgba(176,38,255,.1);margin:12px 0}
+
   /* FOOTER */
   footer {
     position:relative; z-index:1; border-top:1px solid var(--border-glow);
@@ -186,8 +194,8 @@
   <ul>
     <li><a href="index.html">Início</a></li>
     <li><a href="galeria.html" class="active">Galeria</a></li>
-    <li><a href="index.html#servicos">Serviços</a></li>
-    <li><a href="index.html#encomenda">Encomenda</a></li>
+    <li><a href="index.html#sobre">Sobre</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
     <li>
       <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="nav-ig">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
@@ -214,15 +222,51 @@
   </div>
 </div>
 
+<div class="disclaimer-bar">
+  <div class="disclaimer-inner">
+    <div class="disclaimer-label">Aviso Legal / Legal Notice</div>
+
+    <p class="disclaimer-text">
+      <strong style="color:rgba(176,38,255,.8);">PT —</strong>
+      Este site é um portfólio pessoal que documenta impressões 3D realizadas por entretenimento, sem qualquer fim comercial. Não são efectuadas vendas, não são cobradas quaisquer quantias, e os ficheiros digitais não são partilhados, redistribuídos ou disponibilizados a terceiros.
+    </p>
+    <p class="disclaimer-text">
+      Os modelos 3D aqui apresentados são propriedade intelectual dos seus respectivos autores e designers originais. Alguns foram obtidos através de plataformas de licenciamento de ficheiros STL com licença pessoal — os direitos de utilização comercial não foram adquiridos, e nenhuma impressão é utilizada para fins comerciais. Outros modelos são de distribuição livre sob licenças Creative Commons ou equivalentes.
+    </p>
+    <p class="disclaimer-text">
+      Algumas peças — nomeadamente porta-chaves, candeeiros e decorações — foram desenhadas com base em imagens, logótipos ou personagens de terceiros disponíveis publicamente. Reconheço que não detenho quaisquer direitos sobre as obras originais que serviram de referência; apenas as adaptações técnicas realizadas por mim são da minha autoria. Todos os direitos relativos às obras originais pertencem aos seus respectivos titulares.
+    </p>
+    <p class="disclaimer-text">
+      Qualquer nome, personagem, marca registada ou propriedade intelectual referenciados neste site pertencem exclusivamente aos seus titulares. A utilização é meramente referencial e não implica qualquer associação, patrocínio ou endorsement por parte dos mesmos.
+    </p>
+
+    <div class="disclaimer-divider"></div>
+
+    <p class="disclaimer-text">
+      <strong style="color:rgba(176,38,255,.8);">EN —</strong>
+      This site is a personal portfolio documenting 3D prints made for entertainment purposes only, with no commercial intent whatsoever. No items are sold, no fees are charged, and no digital files are shared, redistributed or made available to third parties.
+    </p>
+    <p class="disclaimer-text">
+      The 3D models featured here are the intellectual property of their respective original authors and designers. Some were obtained through licensed STL file platforms under a personal licence — commercial printing rights were not purchased, and no prints are used for commercial purposes. Other models are freely distributed under Creative Commons or equivalent licences.
+    </p>
+    <p class="disclaimer-text">
+      Certain pieces — including keychains, lamps and decorative items — were designed using publicly available images, logos or characters owned by third parties. I acknowledge that I hold no rights over the original works used as reference; only the technical adaptations I produced are my own. All rights relating to the original works remain with their respective owners.
+    </p>
+    <p class="disclaimer-text">
+      Any names, characters, trademarks or intellectual property referenced on this site belong exclusively to their respective owners. Their use is purely for reference and does not imply any association, sponsorship or endorsement by those parties.
+    </p>
+  </div>
+</div>
+
 <footer>
   <a href="index.html" class="footer-logo">BoGuS<span>.</span>Prints</a>
   <ul class="footer-links">
     <li><a href="index.html">Início</a></li>
-    <li><a href="index.html#servicos">Serviços</a></li>
-    <li><a href="index.html#encomenda">Encomenda</a></li>
+    <li><a href="index.html#sobre">Sobre</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
     <li><a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener">Instagram</a></li>
   </ul>
-  <p class="footer-copy">© 2025 BoGuS Prints — 3D Printed Geek Gear &amp; Collector Displays</p>
+  <p class="footer-copy">© 2025 BoGuS Prints — Projecto pessoal de impressão 3D por diversão. Todos os direitos dos modelos pertencem aos respectivos criadores.</p>
 </footer>
 
 <!-- LIGHTBOX -->

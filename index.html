@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="BoGuS Prints — 3D Printed Geek Gear & Collector Displays. Peças personalizadas, gaming props e coleccionismo em impressão 3D.">
+<meta name="description" content="BoGuS Prints — 3D Printed Geek Gear & Collector Displays. Impressão 3D por diversão.">
 <title>BoGuS Prints — 3D Printed Geek Gear</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
@@ -45,8 +45,6 @@
   .section-line{flex:1;min-width:40px;height:1px;background:linear-gradient(90deg,var(--border-glow),transparent)}
   .section-link{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--neon-purple);text-decoration:none;white-space:nowrap;letter-spacing:2px;transition:opacity .2s}
   .section-link:hover{opacity:.7}
-
-  /* DESTAQUE GRID */
   .destaque-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,260px);gap:3px}
   .destaque-item{position:relative;background:var(--card-bg);border:1px solid rgba(0,255,65,.08);overflow:hidden;cursor:pointer;transition:border-color .3s}
   .destaque-item:first-child{grid-row:span 2}
@@ -58,27 +56,21 @@
   .destaque-cat{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--neon-purple);letter-spacing:3px;text-transform:uppercase}
   .destaque-title{font-family:'Orbitron',monospace;font-size:14px;color:var(--neon-green);letter-spacing:1px;text-transform:uppercase;text-align:center;padding:0 12px}
   .destaque-cta{text-align:center;margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-
-  /* STATS */
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:0}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
   .stat-card{background:var(--card-bg);border:1px solid rgba(0,255,65,.1);padding:32px 24px;text-align:center}
   .stat-num{font-family:'Orbitron',monospace;font-weight:900;font-size:40px;color:var(--neon-green);text-shadow:0 0 20px rgba(0,255,65,.4)}
   .stat-label{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-dim);letter-spacing:2px;text-transform:uppercase;margin-top:8px}
-
-  /* SERVICES */
-  .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px}
-  .service-card{background:var(--card-bg);border:1px solid rgba(0,255,65,.1);padding:40px 32px;position:relative;transition:border-color .3s;overflow:hidden}
-  .service-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--neon-green);transition:height .4s ease}
-  .service-card:hover{border-color:var(--border-glow)}
-  .service-card:hover::before{height:100%}
-  .service-num{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--neon-green);opacity:.4;letter-spacing:2px;margin-bottom:20px}
-  .service-title{font-family:'Orbitron',monospace;font-weight:700;font-size:18px;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
-  .service-desc{font-size:14px;color:var(--text-dim);line-height:1.9}
-  .service-tag{display:inline-block;margin-top:20px;padding:4px 12px;border:1px solid var(--neon-purple);font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--neon-purple);letter-spacing:2px;text-transform:uppercase}
-
-  /* ORDER */
-  .order-box{background:var(--card-bg);border:1px solid var(--border-glow);padding:60px;position:relative;overflow:hidden;max-width:800px;margin:0 auto}
-  .order-box::after{content:'ENCOMENDA';position:absolute;right:-30px;top:50%;transform:rotate(90deg) translateX(-50%);font-family:'Orbitron',monospace;font-size:72px;font-weight:900;color:rgba(0,255,65,.025);letter-spacing:8px;white-space:nowrap;pointer-events:none}
+  .about-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px}
+  .about-card{background:var(--card-bg);border:1px solid rgba(0,255,65,.1);padding:40px 32px;position:relative;transition:border-color .3s;overflow:hidden}
+  .about-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--neon-green);transition:height .4s ease}
+  .about-card:hover{border-color:var(--border-glow)}
+  .about-card:hover::before{height:100%}
+  .about-num{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--neon-green);opacity:.4;letter-spacing:2px;margin-bottom:20px}
+  .about-title{font-family:'Orbitron',monospace;font-weight:700;font-size:18px;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+  .about-desc{font-size:14px;color:var(--text-dim);line-height:1.9}
+  .about-tag{display:inline-block;margin-top:20px;padding:4px 12px;border:1px solid var(--neon-purple);font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--neon-purple);letter-spacing:2px;text-transform:uppercase}
+  .contact-box{background:var(--card-bg);border:1px solid var(--border-glow);padding:60px;position:relative;overflow:hidden;max-width:800px;margin:0 auto}
+  .contact-box::after{content:'CONTACTO';position:absolute;right:-30px;top:50%;transform:rotate(90deg) translateX(-50%);font-family:'Orbitron',monospace;font-size:72px;font-weight:900;color:rgba(0,255,65,.025);letter-spacing:8px;white-space:nowrap;pointer-events:none}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
   .form-group{display:flex;flex-direction:column;gap:8px}
   .form-group.full{grid-column:1/-1}
@@ -90,6 +82,15 @@
   .submit-btn{margin-top:32px;padding:16px 48px;background:var(--neon-green);color:#000;font-family:'Orbitron',monospace;font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:box-shadow .2s;width:100%}
   .submit-btn:hover{box-shadow:0 0 40px rgba(0,255,65,.4)}
   .form-note{margin-top:16px;font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(138,138,170,.5);text-align:center;letter-spacing:1px}
+
+  /* DISCLAIMER */
+  .disclaimer-bar{position:relative;z-index:1;background:rgba(176,38,255,.04);border-top:1px solid rgba(176,38,255,.2);border-bottom:1px solid rgba(176,38,255,.2);padding:28px 40px}
+  .disclaimer-inner{max-width:1200px;margin:0 auto}
+  .disclaimer-label{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--neon-purple);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;opacity:.8}
+  .disclaimer-text{font-family:'Exo 2',sans-serif;font-size:12px;color:rgba(138,138,170,.7);line-height:1.8;margin-bottom:10px}
+  .disclaimer-text:last-child{margin-bottom:0}
+  .disclaimer-divider{width:100%;height:1px;background:rgba(176,38,255,.1);margin:12px 0}
+
   footer{position:relative;z-index:1;border-top:1px solid var(--border-glow);padding:48px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
   .footer-logo{font-family:'Orbitron',monospace;font-weight:900;font-size:22px;color:var(--neon-green);text-shadow:0 0 20px rgba(0,255,65,.4);text-decoration:none}
   .footer-logo span{color:var(--neon-purple)}
@@ -105,8 +106,9 @@
     .destaque-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
     .destaque-item:first-child{grid-row:span 1}
     .stats-grid{grid-template-columns:repeat(2,1fr)}
-    .order-box{padding:32px 20px} .order-box::after{display:none}
+    .contact-box{padding:32px 20px} .contact-box::after{display:none}
     .form-row{grid-template-columns:1fr}
+    .disclaimer-bar{padding:24px 20px}
     footer{padding:32px 20px}
   }
   @media(max-width:480px){.destaque-grid{grid-template-columns:1fr}}
@@ -118,8 +120,8 @@
   <a href="#" class="nav-logo">BoGuS<span>.</span>Prints</a>
   <ul>
     <li><a href="galeria.html">Galeria</a></li>
-    <li><a href="#servicos">Serviços</a></li>
-    <li><a href="#encomenda">Encomenda</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contacto">Contacto</a></li>
     <li>
       <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="nav-ig">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
@@ -130,12 +132,12 @@
 </nav>
 
 <section class="hero">
-  <p class="hero-tag">// Sistema iniciado — impressão 3D activa</p>
+  <p class="hero-tag">// impressão 3D — por pura diversão</p>
   <h1 class="hero-title"><span class="bogus">BoGuS</span><span class="prints">Prints</span></h1>
   <p class="hero-sub">3D Printed Geek Gear &amp; Collector Displays</p>
   <div class="hero-cta">
-    <a href="galeria.html" class="btn-primary">Ver Galeria Completa</a>
-    <a href="#encomenda" class="btn-outline">Fazer Encomenda</a>
+    <a href="galeria.html" class="btn-primary">Ver Galeria</a>
+    <a href="#contacto" class="btn-outline">Entrar em Contacto</a>
   </div>
 </section>
 
@@ -144,11 +146,11 @@
     <span class="ticker-item">Suportes & Gaming</span><span class="ticker-item">D&D / Tabletop</span>
     <span class="ticker-item">Luminárias & Decoração</span><span class="ticker-item">Personagens & Geek</span>
     <span class="ticker-item">Portraits</span><span class="ticker-item">Porta-chaves</span>
-    <span class="ticker-item">Presentes Personalizados</span><span class="ticker-item">83 Peças no Catálogo</span>
+    <span class="ticker-item">Presentes Personalizados</span><span class="ticker-item">Impressão por Diversão</span>
     <span class="ticker-item">Suportes & Gaming</span><span class="ticker-item">D&D / Tabletop</span>
     <span class="ticker-item">Luminárias & Decoração</span><span class="ticker-item">Personagens & Geek</span>
     <span class="ticker-item">Portraits</span><span class="ticker-item">Porta-chaves</span>
-    <span class="ticker-item">Presentes Personalizados</span><span class="ticker-item">83 Peças no Catálogo</span>
+    <span class="ticker-item">Presentes Personalizados</span><span class="ticker-item">Impressão por Diversão</span>
   </div>
 </div>
 
@@ -158,10 +160,10 @@
     <span class="section-num">01</span>
     <h2 class="section-title">Em Destaque</h2>
     <div class="section-line"></div>
-    <a href="galeria.html" class="section-link">Ver catálogo completo →</a>
+    <a href="galeria.html" class="section-link">Ver galeria completa →</a>
   </div>
   <div class="destaque-grid" id="destaque-grid">
-    <div style="grid-column:1/-1;padding:60px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--text-dim);letter-spacing:2px;">A carregar destaques...</div>
+    <div style="grid-column:1/-1;padding:60px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--text-dim);letter-spacing:2px;">A carregar...</div>
   </div>
   <div class="destaque-cta">
     <a href="galeria.html" class="btn-primary">Ver as 83 Peças</a>
@@ -170,66 +172,66 @@
 </div>
 
 <!-- STATS -->
-<div style="position:relative;z-index:1;background:rgba(0,255,65,.02);border-top:1px solid rgba(0,255,65,.1);border-bottom:1px solid rgba(0,255,65,.1);padding:0;">
+<div style="position:relative;z-index:1;background:rgba(0,255,65,.02);border-top:1px solid rgba(0,255,65,.1);border-bottom:1px solid rgba(0,255,65,.1);">
   <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
     <div class="stats-grid">
-      <div class="stat-card"><div class="stat-num">83</div><div class="stat-label">Peças no catálogo</div></div>
+      <div class="stat-card"><div class="stat-num">83</div><div class="stat-label">Peças impressas</div></div>
       <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">Categorias</div></div>
-      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Serviços</div></div>
-      <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Possibilidades</div></div>
+      <div class="stat-card"><div class="stat-num">FDM</div><div class="stat-label">Tecnologia</div></div>
+      <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Diversão</div></div>
     </div>
   </div>
 </div>
 
-<!-- SERVIÇOS -->
-<div id="servicos" class="section-wrap">
+<!-- SOBRE -->
+<div id="sobre" class="section-wrap">
   <div class="section-header">
     <span class="section-num">02</span>
-    <h2 class="section-title">Serviços</h2>
+    <h2 class="section-title">Sobre</h2>
     <div class="section-line"></div>
   </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <p class="service-num">SRV-001</p>
-      <h3 class="service-title">Impressão por Encomenda</h3>
-      <p class="service-desc">Tens um ficheiro .STL ou .3MF e queres vê-lo impresso? Envia o teu modelo e trato do resto — escolha de material, cor e acabamento.</p>
-      <span class="service-tag">Ficheiro próprio</span>
+  <div class="about-grid">
+    <div class="about-card">
+      <p class="about-num">01</p>
+      <h3 class="about-title">O que é isto?</h3>
+      <p class="about-desc">A BoGuS Prints é um projecto pessoal de impressão 3D por pura diversão. Imprimo modelos de ficheiros criados por designers e comunidades, exploro materiais e técnicas, e partilho os resultados.</p>
+      <span class="about-tag">Projecto pessoal</span>
     </div>
-    <div class="service-card">
-      <p class="service-num">SRV-002</p>
-      <h3 class="service-title">Peças Personalizadas</h3>
-      <p class="service-desc">Coleccionismo, gaming props, miniaturas, displays — desenvolvo a peça de raiz com base na tua ideia. Do conceito ao objecto físico na tua mão.</p>
-      <span class="service-tag">Design incluído</span>
+    <div class="about-card">
+      <p class="about-num">02</p>
+      <h3 class="about-title">Posso imprimir o teu ficheiro?</h3>
+      <p class="about-desc">Se tiveres um ficheiro .STL ou .3MF e quiseres ver o resultado impresso, fala comigo. Não é um serviço comercial — é uma conversa entre entusiastas.</p>
+      <span class="about-tag">Colaboração</span>
     </div>
-    <div class="service-card">
-      <p class="service-num">SRV-003</p>
-      <h3 class="service-title">Geek Gear &amp; Displays</h3>
-      <p class="service-desc">Suportes, expositores e adornos para a tua colecção geek. Compatíveis com amiibos, figuras, cartuchos retro e muito mais.</p>
-      <span class="service-tag">Catálogo disponível</span>
+    <div class="about-card">
+      <p class="about-num">03</p>
+      <h3 class="about-title">Outros projectos</h3>
+      <p class="about-desc">Tens uma ideia para um projecto diferente? Podes falar comigo. Sem garantias, sem prazos formais — apenas entusiasmo por impressão 3D e boa vontade.</p>
+      <span class="about-tag">Fala comigo</span>
     </div>
   </div>
 </div>
 
-<!-- ENCOMENDA -->
-<div id="encomenda" class="section-wrap" style="padding-top:0;">
+<!-- CONTACTO -->
+<div id="contacto" class="section-wrap" style="padding-top:0;">
   <div class="section-header">
     <span class="section-num">03</span>
-    <h2 class="section-title">Fazer Encomenda</h2>
+    <h2 class="section-title">Contacto</h2>
     <div class="section-line"></div>
   </div>
-  <div class="order-box">
+  <div class="contact-box">
     <div class="form-row">
       <div class="form-group"><label for="nome">Nome</label><input type="text" id="nome" placeholder="O teu nome" autocomplete="name"></div>
       <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="email@exemplo.com" autocomplete="email"></div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        <label for="tipo">Tipo de Encomenda</label>
+        <label for="tipo">Assunto</label>
         <select id="tipo">
-          <option value="">Selecciona uma opção</option>
-          <option>Impressão de ficheiro próprio</option>
-          <option>Peça personalizada</option>
-          <option>Geek Gear / Display</option>
+          <option value="">Selecciona</option>
+          <option>Quero imprimir o meu ficheiro</option>
+          <option>Tenho um projecto para falar</option>
+          <option>Questão sobre uma peça</option>
           <option>Outro</option>
         </select>
       </div>
@@ -242,11 +244,48 @@
       </div>
     </div>
     <div class="form-group full" style="margin-bottom:0;">
-      <label for="descricao">Descrição da Peça</label>
-      <textarea id="descricao" placeholder="Descreve o que precisas — cor, dimensões, quantidade, referência..."></textarea>
+      <label for="descricao">Mensagem</label>
+      <textarea id="descricao" placeholder="Descreve o teu projecto ou ideia..."></textarea>
     </div>
-    <button class="submit-btn" onclick="submitOrder()">Enviar Pedido</button>
-    <p class="form-note">Podes também contactar directamente via Instagram: <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" style="color:var(--neon-purple);text-decoration:none;">@bogus.prints</a></p>
+    <button class="submit-btn" onclick="submitContact()">Enviar Mensagem</button>
+    <p class="form-note">Podes também falar directamente no Instagram: <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" style="color:var(--neon-purple);text-decoration:none;">@bogus.prints</a></p>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer-bar">
+  <div class="disclaimer-inner">
+    <div class="disclaimer-label">Aviso Legal / Legal Notice</div>
+
+    <p class="disclaimer-text">
+      <strong style="color:rgba(176,38,255,.8);">PT —</strong>
+      Este site é um portfólio pessoal que documenta impressões 3D realizadas por entretenimento, sem qualquer fim comercial. Não são efectuadas vendas, não são cobradas quaisquer quantias, e os ficheiros digitais não são partilhados, redistribuídos ou disponibilizados a terceiros.
+    </p>
+    <p class="disclaimer-text">
+      Os modelos 3D aqui apresentados são propriedade intelectual dos seus respectivos autores e designers originais. Alguns foram obtidos através de plataformas de licenciamento de ficheiros STL com licença pessoal — os direitos de utilização comercial não foram adquiridos, e nenhuma impressão é utilizada para fins comerciais. Outros modelos são de distribuição livre sob licenças Creative Commons ou equivalentes.
+    </p>
+    <p class="disclaimer-text">
+      Algumas peças — nomeadamente porta-chaves, candeeiros e decorações — foram desenhadas com base em imagens, logótipos ou personagens de terceiros disponíveis publicamente. Reconheço que não detenho quaisquer direitos sobre as obras originais que serviram de referência; apenas as adaptações técnicas realizadas por mim são da minha autoria. Todos os direitos relativos às obras originais pertencem aos seus respectivos titulares.
+    </p>
+    <p class="disclaimer-text">
+      Qualquer nome, personagem, marca registada ou propriedade intelectual referenciados neste site pertencem exclusivamente aos seus titulares. A utilização é meramente referencial e não implica qualquer associação, patrocínio ou endorsement por parte dos mesmos.
+    </p>
+
+    <div class="disclaimer-divider"></div>
+
+    <p class="disclaimer-text">
+      <strong style="color:rgba(176,38,255,.8);">EN —</strong>
+      This site is a personal portfolio documenting 3D prints made for entertainment purposes only, with no commercial intent whatsoever. No items are sold, no fees are charged, and no digital files are shared, redistributed or made available to third parties.
+    </p>
+    <p class="disclaimer-text">
+      The 3D models featured here are the intellectual property of their respective original authors and designers. Some were obtained through licensed STL file platforms under a personal licence — commercial printing rights were not purchased, and no prints are used for commercial purposes. Other models are freely distributed under Creative Commons or equivalent licences.
+    </p>
+    <p class="disclaimer-text">
+      Certain pieces — including keychains, lamps and decorative items — were designed using publicly available images, logos or characters owned by third parties. I acknowledge that I hold no rights over the original works used as reference; only the technical adaptations I produced are my own. All rights relating to the original works remain with their respective owners.
+    </p>
+    <p class="disclaimer-text">
+      Any names, characters, trademarks or intellectual property referenced on this site belong exclusively to their respective owners. Their use is purely for reference and does not imply any association, sponsorship or endorsement by those parties.
+    </p>
   </div>
 </div>
 
@@ -254,14 +293,14 @@
   <a href="#" class="footer-logo">BoGuS<span>.</span>Prints</a>
   <ul class="footer-links">
     <li><a href="galeria.html">Galeria</a></li>
-    <li><a href="#servicos">Serviços</a></li>
-    <li><a href="#encomenda">Encomenda</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contacto">Contacto</a></li>
     <li><a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener">Instagram</a></li>
   </ul>
-  <p class="footer-copy">© 2025 BoGuS Prints — 3D Printed Geek Gear &amp; Collector Displays</p>
+  <p class="footer-copy">© 2025 BoGuS Prints — Projecto pessoal de impressão 3D por diversão. Todos os direitos dos modelos pertencem aos respectivos criadores.</p>
 </footer>
 
-<div class="toast" id="toast">Pedido preparado! A redirecionar para Instagram...</div>
+<div class="toast" id="toast">Mensagem preparada! A redirecionar para Instagram...</div>
 
 <script>
 const DESTAQUES = [
@@ -280,8 +319,7 @@ function carregarDestaques() {
     const div = document.createElement('div');
     div.className = 'destaque-item';
     if (idx === 0) div.style.gridRow = 'span 2';
-    div.innerHTML = `
-      <img src="img/${item.ficheiro}" alt="${item.titulo}" loading="lazy">
+    div.innerHTML = `<img src="img/${item.ficheiro}" alt="${item.titulo}" loading="lazy">
       <div class="destaque-overlay">
         <span class="destaque-cat">${item.categoria}</span>
         <span class="destaque-title">${item.titulo}</span>
@@ -291,12 +329,12 @@ function carregarDestaques() {
   });
 }
 
-function submitOrder() {
-  const nome  = document.getElementById('nome').value.trim();
+function submitContact() {
+  const nome = document.getElementById('nome').value.trim();
   const email = document.getElementById('email').value.trim();
   const tipo  = document.getElementById('tipo').value;
   const desc  = document.getElementById('descricao').value.trim();
-  if (!nome || !email || !tipo || !desc) { alert('Por favor preenche todos os campos obrigatórios.'); return; }
+  if (!nome || !email || !tipo || !desc) { alert('Por favor preenche todos os campos.'); return; }
   const toast = document.getElementById('toast');
   toast.classList.add('show');
   setTimeout(() => { toast.classList.remove('show'); window.open('https://www.instagram.com/bogus.prints/', '_blank'); }, 1800);
