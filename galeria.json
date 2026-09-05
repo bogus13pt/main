@@ -562,5 +562,23 @@
     "titulo": "Luminária Fortnite — Lourenço",
     "categoria": "Luminárias & Decoração",
     "destaque": false
+  },
+  {
+    "ficheiro": "Luminaria_Sofia_Vanessa.jpg",
+    "titulo": "Luminária Princesa Sofia — Vanessa",
+    "categoria": "Luminárias & Decoração",
+    "destaque": false
+  },
+  {
+    "ficheiro": "Taca_Mundo_FIFA.jpg",
+    "titulo": "Taça do Mundo FIFA",
+    "categoria": "Presentes Personalizados",
+    "destaque": false
+  },
+  {
+    "ficheiro": "Dragao_Cuspidor_Fogo.jpg",
+    "titulo": "Dragão Cuspidor de Fogo",
+    "categoria": "Personagens & Geek",
+    "destaque": false
   }
 ]
