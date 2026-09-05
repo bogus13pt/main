@@ -313,8 +313,18 @@ async function init() {
       '<div style="grid-column:1/-1;padding:80px;text-align:center;font-family:\'Share Tech Mono\',monospace;font-size:13px;color:rgba(255,80,80,.6);letter-spacing:2px;">galeria.json não encontrado.</div>';
     return;
   }
+  baralharItens(todosItens);
   construirFiltros();
   aplicarFiltros();
+}
+
+// Fisher-Yates: baralha o array in-place, ordem diferente a cada carregamento da página
+function baralharItens(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
 function construirFiltros() {

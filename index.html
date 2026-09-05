@@ -166,7 +166,7 @@
     <div style="grid-column:1/-1;padding:60px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--text-dim);letter-spacing:2px;">A carregar...</div>
   </div>
   <div class="destaque-cta">
-    <a href="galeria.html" class="btn-primary">Ver as 83 Peças</a>
+    <a href="galeria.html" class="btn-primary" id="btn-ver-galeria">Ver Todas as Peças</a>
     <a href="https://www.instagram.com/bogus.prints/" target="_blank" rel="noopener" class="btn-outline">Seguir no Instagram</a>
   </div>
 </div>
@@ -175,7 +175,7 @@
 <div style="position:relative;z-index:1;background:rgba(0,255,65,.02);border-top:1px solid rgba(0,255,65,.1);border-bottom:1px solid rgba(0,255,65,.1);">
   <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
     <div class="stats-grid">
-      <div class="stat-card"><div class="stat-num">83</div><div class="stat-label">Peças impressas</div></div>
+      <div class="stat-card"><div class="stat-num" id="stat-total-pecas">…</div><div class="stat-label">Peças impressas</div></div>
       <div class="stat-card"><div class="stat-num">FDM</div><div class="stat-label">Tecnologia</div></div>
       <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Diversão</div></div>
     </div>
@@ -331,6 +331,18 @@ function carregarDestaques() {
   });
 }
 
+async function actualizarContagemPecas() {
+  try {
+    const res = await fetch('galeria.json');
+    if (!res.ok) throw new Error();
+    const itens = await res.json();
+    document.getElementById('stat-total-pecas').textContent = itens.length;
+    document.getElementById('btn-ver-galeria').textContent = 'Ver as ' + itens.length + ' Peças';
+  } catch {
+    document.getElementById('stat-total-pecas').textContent = '—';
+  }
+}
+
 function submitContact() {
   const nome = document.getElementById('nome').value.trim();
   const email = document.getElementById('email').value.trim();
@@ -343,6 +355,7 @@ function submitContact() {
 }
 
 carregarDestaques();
+actualizarContagemPecas();
 </script>
 </body>
 </html>
