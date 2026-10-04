@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Jogada 3 · Reposição na linha lateral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F3F5;--ink:#1E2329;--soft:#5A6270;--rule:#D5D9DF;--wood:#E3C394;--wood2:#D9B583;--line:#FFFFFF;--team:#1F4FD1;--teamInk:#FFFFFF;--ball:#E5711E;--trail:#1E2329;--btn:#FFFFFF;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171B;--ink:#E8EAED;--soft:#9AA2AE;--rule:#2C3138;--wood:#7A5E3C;--wood2:#715636;--line:#EDE3D3;--team:#5B86F0;--teamInk:#0D1320;--ball:#F08A3A;--trail:#F4EEE4;--btn:#1D2126}}
+:root[data-theme="dark"]{--bg:#14171B;--ink:#E8EAED;--soft:#9AA2AE;--rule:#2C3138;--wood:#7A5E3C;--wood2:#715636;--line:#EDE3D3;--team:#5B86F0;--teamInk:#0D1320;--ball:#F08A3A;--trail:#F4EEE4;--btn:#1D2126}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Barlow",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:620px;margin:0 auto;padding:28px 18px 40px}
+h1{font:600 clamp(30px,7vw,42px)/1.05 "Barlow Condensed","Arial Narrow",sans-serif;margin:0 0 10px;letter-spacing:.2px}
+.lead{color:var(--soft);margin:0 0 22px;max-width:60ch}
+.court{position:relative;border-radius:6px;overflow:hidden}
+svg{display:block;width:100%;height:auto}
+.cap{font:500 19px/1.35 "Barlow Condensed","Arial Narrow",sans-serif;min-height:52px;margin:14px 0 12px}
+.cap small{display:block;font:400 14px/1.4 "Barlow",sans-serif;color:var(--soft);margin-bottom:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button{font:500 15px "Barlow",sans-serif;color:var(--ink);background:var(--btn);border:1px solid var(--rule);border-radius:6px;padding:9px 14px;min-height:42px;cursor:pointer}
+button:hover{border-color:var(--soft)}
+button:focus-visible{outline:2px solid var(--team);outline-offset:2px}
+button.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button[aria-pressed="true"]{border-color:var(--team);box-shadow:inset 0 0 0 1px var(--team);color:var(--team)}
+.alts{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--rule)}
+.alts p{margin:0 0 8px;font-size:15px;color:var(--soft)}
+ol{padding-left:22px;margin:26px 0 0}
+ol li{margin:0 0 8px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--soft);margin-top:22px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend svg{width:30px;height:12px}
+.prog{display:flex;gap:4px;margin:12px 0 0}
+.prog i{flex:1;height:4px;border-radius:2px;background:var(--rule)}
+.prog i.on{background:var(--team)}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main>
+<h1>Jogada 3 · Reposição na linha lateral</h1>
+<p class="lead">A reposição coloca a bola nas mãos do base penetrador, que recebe de imediato um bloqueio directo do poste.</p>
+
+<div class="court">
+<svg id="cv" viewBox="0 0 400 345" role="img" aria-label="Meio-campo de basquetebol com a animação da jogada">
+<defs>
+<pattern id="planks" width="24" height="345" patternUnits="userSpaceOnUse">
+<rect width="24" height="345" fill="var(--wood)"/><rect x="12" width="12" height="345" fill="var(--wood2)" opacity=".45"/>
+</pattern>
+</defs>
+<rect width="400" height="345" fill="url(#planks)"/>
+<g fill="none" stroke="var(--line)" stroke-width="2">
+<rect x="34" y="20" width="328" height="322"/>
+<rect x="158" y="20" width="79" height="138"/>
+<path d="M158 158 A40 40 0 0 0 237 158"/>
+<path d="M55 20 L55 100 A146 146 0 0 0 340 100 L340 20"/>
+<path d="M158 342 A40 40 0 0 1 237 342"/>
+<line x1="178" y1="58" x2="218" y2="58"/>
+<circle cx="198" cy="67" r="6"/>
+</g>
+<g id="tr" fill="none" stroke="var(--trail)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></g>
+<g id="pl"></g>
+<circle id="ball" r="6" fill="var(--ball)" stroke="var(--ink)" stroke-width=".8"/>
+</svg>
+</div>
+
+<div class="prog" id="prog"></div>
+<p class="cap" id="cap" aria-live="polite"></p>
+
+<div class="row">
+<button id="prev" aria-label="Fase anterior">Anterior</button>
+<button id="next" class="primary">Seguinte</button>
+<button id="all">Ver jogada completa</button>
+<button id="rst">Reiniciar</button>
+</div>
+
+<div class="alts">
+<p>Leitura do base após o bloqueio directo</p>
+<div class="row">
+<button class="alt" data-a="1">Assiste 5</button>
+<button class="alt" data-a="2">Lança</button>
+<button class="alt" data-a="3">Passa a 2</button>
+</div>
+</div>
+
+<div class="legend" aria-hidden="true">
+<span><svg viewBox="0 0 30 12"><line x1="2" y1="6" x2="28" y2="6" stroke="var(--ink)" stroke-width="2"/></svg>Deslocação</span>
+<span><svg viewBox="0 0 30 12"><path d="M2 6 q3 -5 6 0 t6 0 t6 0 t6 0" fill="none" stroke="var(--ink)" stroke-width="2"/></svg>Drible</span>
+<span><svg viewBox="0 0 30 12"><line x1="2" y1="6" x2="28" y2="6" stroke="var(--ink)" stroke-width="2" stroke-dasharray="5 4"/></svg>Passe</span>
+<span><svg viewBox="0 0 30 12"><line x1="2" y1="6" x2="22" y2="6" stroke="var(--ink)" stroke-width="2"/><line x1="24" y1="0" x2="24" y2="12" stroke="var(--ink)" stroke-width="3"/></svg>Bloqueio</span>
+</div>
+
+<ol>
+<li>4 faz bloqueio indirecto a 1, que aproveita e corta para a bola.</li>
+<li>3 repõe para 1; 4 desfaz o bloqueio e afunda para o canto.</li>
+<li>5 sobe e bloqueia 1 no momento em que este recebe.</li>
+<li>1 usa o bloqueio e penetra em drible; 5 desfaz o bloqueio para o cesto.</li>
+<li>1 decide após leitura: assiste 5, lança (paragem a 1 tempo, floater ou na passada) ou passa a 2.</li>
+</ol>
+</main>
+
+<script>
+const NS='http://www.w3.org/2000/svg',B=[198,67],D=1900;
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const P0={1:[248,64],2:[43,62],3:[379,239],4:[250,161],5:[145,66]};
+const common=[
+{h:'Fase 1',c:'4 faz bloqueio indirecto a 1, que aproveita e corta para a bola.',a:[{m:4,to:[250,100],t:[0,.4],s:1},{m:1,to:[238,204],c:[200,150],t:[.3,1]}]},
+{h:'Fase 2',c:'3 repõe para 1; 4 desfaz o bloqueio e afunda.',a:[{p:1,t:[0,.45]},{m:3,to:[345,238],t:[.45,1]},{m:1,to:[255,224],t:[.45,1]},{m:4,to:[351,66],c:[320,125],t:[.2,1]}]},
+{h:'Fase 3',c:'5 sobe e bloqueia 1 assim que este recebe (bloqueio directo).',a:[{m:5,to:[232,194],c:[185,130],t:[0,1],s:1}]},
+{h:'Fase 4',c:'1 usa o bloqueio e penetra em drible; 5 desfaz o bloqueio para o cesto.',a:[{m:1,to:[160,132],c:[200,258],t:[0,1],d:1},{m:5,to:[205,100],t:[.35,1]}]}];
+const alts={
+1:{h:'Alternativa 1',c:'1 chama a defesa e assiste 5, que finaliza.',a:[{p:5,t:[0,.5]},{m:5,to:[198,82],t:[.5,.8]},{p:'B',t:[.8,1]}]},
+2:{h:'Alternativa 2',c:'Paragem a 1 tempo e lançamento, floater ou lançamento na passada.',a:[{m:1,to:[178,108],t:[0,.35]},{p:'B',c:[172,25],t:[.4,1]}]},
+3:{h:'Alternativa 3',c:'A ajuda fecha em 1, que passa a 2 aberto no canto.',a:[{p:2,t:[0,1]}]}};
+let alt=1,steps,snaps,i=0,busy=false,chain=false;
+const $=id=>document.getElementById(id);
+const cl=o=>JSON.parse(JSON.stringify(o));
+const q=(a,c,b,u)=>{c=c||[(a[0]+b[0])/2,(a[1]+b[1])/2];const v=1-u;return[v*v*a[0]+2*v*u*c[0]+u*u*b[0],v*v*a[1]+2*v*u*c[1]+u*u*b[1]]};
+const ez=u=>u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;
+const tgt=(st,p)=>p==='B'?B:st.pos[p];
+function build(){steps=common.concat([alts[alt]]);snaps=[{pos:cl(P0),h:3,bp:null}];
+steps.forEach(s=>{const st=cl(snaps[snaps.length-1]);s.a.forEach(a=>{if(a.m)st.pos[a.m]=a.to.slice()});
+s.a.forEach(a=>{if(a.p){if(a.p==='B'){st.h=null;st.bp=B.slice()}else{st.h=a.p;st.bp=null}}});snaps.push(st)});
+$('prog').innerHTML=steps.map(()=>'<i></i>').join('');}
+const pl=$('pl'),tr=$('tr'),ball=$('ball'),cap=$('cap'),P={};
+[1,2,3,4,5].forEach(n=>{const g=document.createElementNS(NS,'g');
+const c=document.createElementNS(NS,'circle');c.setAttribute('r','12');c.setAttribute('fill','var(--team)');c.setAttribute('stroke','var(--line)');c.setAttribute('stroke-width','1.5');
+const t=document.createElementNS(NS,'text');t.setAttribute('text-anchor','middle');t.setAttribute('dy','5');t.setAttribute('fill','var(--teamInk)');
+t.setAttribute('style','font:600 15px "Barlow Condensed","Arial Narrow",sans-serif');t.textContent=n;g.append(c,t);pl.append(g);P[n]=g});
+function draw(st,bpt){for(const n in P)P[n].setAttribute('transform','translate('+st.pos[n][0]+','+st.pos[n][1]+')');
+const b=bpt||(st.h?[st.pos[st.h][0]+10,st.pos[st.h][1]-10]:st.bp);ball.setAttribute('cx',b[0]);ball.setAttribute('cy',b[1]);}
+function setCap(k){const s=k===0?{h:'Posição inicial',c:'3 repõe a bola na linha lateral.'}:steps[k-1];
+cap.innerHTML='<small>'+s.h+'</small>'+s.c;[...$('prog').children].forEach((e,j)=>e.className=j<k?'on':'');}
+function show(k){i=k;tr.innerHTML='';draw(snaps[k]);setCap(k);}
+function el(tag,at){const e=document.createElementNS(NS,tag);for(const k in at)e.setAttribute(k,at[k]);tr.append(e);return e}
+function play(){if(busy||i>=steps.length)return;busy=true;const s=steps[i],st0=snaps[i],cur=cl(st0);
+setCap(i+1);tr.innerHTML='';
+const items=s.a.map(a=>{const it={a};if(a.m){it.from=st0.pos[a.m].slice();it.e=el('polyline',{points:''})}
+else{const h=st0.h;it.from=[st0.pos[h][0]+10,st0.pos[h][1]-10];it.to=tgt(st0,a.p);it.e=el('polyline',{points:'','stroke-dasharray':'6 5'})}return it});
+const t0=performance.now(),dur=reduce?1:D;
+function fr(now){const t=Math.min(1,(now-t0)/dur);let bpt=null;
+items.forEach(it=>{const a=it.a,u=ez(Math.max(0,Math.min(1,(t-a.t[0])/(a.t[1]-a.t[0])))),pts=[],N=40;
+for(let k=0;k<=N*u;k++){const w=k/N;let p=a.m?q(it.from,a.c,a.to,w):q(it.from,a.c,it.to,w);
+if(a.d){const p2=q(it.from,a.c,a.to,Math.min(1,w+.01)),dx=p2[0]-p[0],dy=p2[1]-p[1],L=Math.hypot(dx,dy)||1,o=4*Math.sin(k*1.6);p=[p[0]-dy/L*o,p[1]+dx/L*o]}
+pts.push(p[0].toFixed(1)+','+p[1].toFixed(1))}
+it.e.setAttribute('points',pts.join(' '));
+if(a.m){cur.pos[a.m]=q(it.from,a.c,a.to,u);
+if(a.s&&u>=1&&!it.sc){it.sc=1;const p=q(it.from,a.c,a.to,.95),dx=a.to[0]-p[0],dy=a.to[1]-p[1],L=Math.hypot(dx,dy)||1,x=a.to[0]+dx/L*14,y=a.to[1]+dy/L*14;
+el('line',{x1:x-dy/L*9,y1:y+dx/L*9,x2:x+dy/L*9,y2:y-dx/L*9,'stroke-width':'3'})}}
+else if(t>=a.t[0]&&t<a.t[1]){bpt=q(it.from,a.c,it.to,u);cur.h=null}
+else if(t>=a.t[1]){if(a.p==='B'){cur.h=null;cur.bp=B.slice()}else{cur.h=a.p;cur.bp=null}}});
+draw(cur,bpt);
+if(t<1)requestAnimationFrame(fr);else{busy=false;i++;draw(snaps[i]);
+if(chain&&i<steps.length)setTimeout(play,450);else chain=false;}}
+requestAnimationFrame(fr);}
+function setAlt(a){alt=a;document.querySelectorAll('.alt').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.a===a));
+if(!busy){const k=Math.min(i,4);build();show(k)}}
+document.querySelectorAll('.alt').forEach(b=>b.onclick=()=>setAlt(+b.dataset.a));
+$('next').onclick=()=>{chain=false;play()};
+$('prev').onclick=()=>{if(!busy&&i>0){chain=false;show(i-1)}};
+$('rst').onclick=()=>{if(!busy){chain=false;show(0)}};
+$('all').onclick=()=>{if(busy)return;show(0);chain=true;setTimeout(play,300)};
+build();setAlt(1);show(0);
+</script>
+</body>
+</html>
