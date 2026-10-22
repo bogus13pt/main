@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/bola.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilo.css">
+<title>Jogada “Revólver” · Mão-a-mão do 4 para o 1</title>
+</head>
+<body>
+<main id="jogada"></main>
+<script>
+const AJUDA={h:'Alternativa 3 · Ajuda do lado contrário',c:'A ajuda à penetração chega do lado contrário. 5 sai do garrafão e bloqueia o defensor do 2.',a:[{m:5,to:[70,80],t:[0,.7],s:1}]};
+window.JOGADA={
+titulo:'Jogada “Revólver” · Mão-a-mão do 4 para o 1',
+intro:'O base (1), com características de penetração, recebe a bola em mão do 4 e lê a defesa. Ao mesmo tempo, o 2 sai do bloqueio do 3 para o canto, pronto para lançar logo que recebe. O 5 dá a linha de passe junto ao cesto.',
+inicio:{bola:1,c:'1 com bola no topo, à direita. 4 na ala direita, 5 junto ao cesto do lado esquerdo, 3 e 2 na ala esquerda.',pos:{1:[245,262],2:[100,222],3:[70,140],4:[285,188],5:[150,78]}},
+fases:[
+{h:'Fase 1',c:'1 passa a 4 e segue a bola para a receber de volta em mão.',a:[{p:4,t:[0,.4]},{m:1,to:[318,212],c:[300,268],t:[.3,1]}]},
+{h:'Fase 2',c:'3 bloqueia o defensor do 2, que usa o bloqueio e corre para o canto esquerdo.',a:[{m:3,to:[90,192],t:[0,.4],s:1},{m:2,to:[52,48],c:[66,200],t:[.35,1]}]},
+{h:'Fase 3',c:'4 entrega a bola em mão a 1, que ataca o cesto em drible pela direita e lê a defesa.',a:[{p:1,t:[0,.3]},{m:1,to:[250,82],c:[345,125],t:[.3,1],d:1}]}
+],
+perguntaAlternativas:'Leitura de 1 durante a penetração',
+alternativas:[
+{rotulo:'1 finaliza',h:'Alternativa 1 · Sem ajuda',c:'Ninguém sai em ajuda. 1 continua a penetração e finaliza na passada.',a:[{m:1,to:[218,74],t:[0,.4]},{p:'B',t:[.45,1]}]},
+{rotulo:'2 lança de 3',h:'Alternativa 2 · Ajuda do defensor do 2',c:'O defensor do 2 sai em ajuda à penetração. 1 passa a 2, sozinho no canto, que lança de três logo que recebe.',a:[{p:2,t:[0,.55]},{p:'B',c:[110,0],t:[.65,1]}]},
+{rotulo:'5 rola',passos:[AJUDA,{h:'Alternativa 3 · Finalização',c:'5 rola para o cesto e dá linha de passe a 1, que lhe passa a bola. 5 finaliza.',a:[{m:5,to:[178,88],t:[0,.5]},{p:5,t:[.45,.72]},{p:'B',t:[.78,1]}]}]}
+],
+resumo:[
+'1 passa a 4 e segue a bola.',
+'3 bloqueia o defensor do 2, que corre para o canto esquerdo para lançar logo que recebe.',
+'4 entrega a bola em mão a 1, que ataca o cesto em drible e lê a defesa.',
+'Sem ajuda, 1 finaliza. Se o defensor do 2 ajudar, 1 passa a 2 no canto para o triplo.',
+'Se houver ajuda do lado contrário, 5 bloqueia o defensor do 2 e rola para o cesto, dando linha de passe a 1.'
+]};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

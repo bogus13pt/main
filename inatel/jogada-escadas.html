@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/bola.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilo.css">
+<title>Jogada “Escadas” · Bloqueios em escada para o 2</title>
+</head>
+<body>
+<main id="jogada"></main>
+<script>
+window.JOGADA={
+titulo:'Jogada “Escadas” · Bloqueios em escada para o 2',
+intro:'Jogada para libertar o 2 para um lançamento de três sem oposição. O 2 atravessa o campo pelos bloqueios em escada do 5 e do 4. Se o 3 também ficar livre, pode lançar.',
+inicio:{bola:1,c:'1 com bola no topo. 3 e 2 junto à linha de fundo, um de cada lado do garrafão; 4 e 5 a meio, um de cada lado.',pos:{1:[198,258],2:[278,52],3:[118,52],4:[132,128],5:[262,128]}},
+fases:[
+{h:'Fase 1',c:'4 e 5 fecham sobre o garrafão e colocam-se em escada, um a seguir ao outro, no caminho do 2.',a:[{m:5,to:[234,120],t:[0,.6],s:1},{m:4,to:[166,140],t:[.1,.7],s:1}]},
+{h:'Fase 2',c:'2 sai colado ao bloqueio do 5 (1.º degrau da escada). 3 cruza junto à linha de fundo para a ala direita.',a:[{m:2,to:[226,154],c:[268,128],t:[0,1]},{m:3,to:[326,196],c:[200,28],t:[.1,1]}]},
+{h:'Fase 3',c:'2 continua colado ao bloqueio do 4 (2.º degrau) e sai para a ala esquerda.',a:[{m:2,to:[72,196],c:[160,176],t:[0,1]}]},
+{h:'Fase 4',c:'4 sai ao encontro do 2 e bloqueia o seu defensor, para lhe dar espaço para o triplo.',a:[{m:4,to:[104,176],t:[0,.7],s:1}]}
+],
+perguntaAlternativas:'Leitura de 1 (com bola)',
+alternativas:[
+{rotulo:'2 lança de 3',h:'Alternativa 1 · Objetivo da jogada',c:'O defensor do 2 fica preso na escada e no bloqueio do 4. 1 passa a 2, aberto na ala esquerda, que lança de três.',a:[{p:2,t:[0,.5]},{p:'B',c:[110,15],t:[.6,1]}]},
+{rotulo:'3 lança de 3',h:'Alternativa 2 · 3 livre',c:'A defesa concentra-se no 2 e o 3 fica livre na ala direita. 1 passa a 3, que lança de três.',a:[{p:3,t:[0,.5]},{p:'B',c:[290,15],t:[.6,1]}]}
+],
+resumo:[
+'4 e 5 colocam-se em escada no meio do garrafão.',
+'2 sai colado ao bloqueio do 5 e depois ao do 4, e abre para a ala esquerda; 3 cruza para a ala direita.',
+'4 sai ao encontro do 2 e bloqueia o seu defensor.',
+'Objetivo: 1 passa a 2 para o triplo aberto.',
+'Se o 3 se libertar, 1 passa-lhe e o 3 também pode lançar.'
+]};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

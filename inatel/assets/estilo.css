@@ -1,0 +1,50 @@
+:root{--bg:#F3F4F7;--ink:#151B2B;--soft:#576075;--rule:#D6DAE2;--navy:#12307A;--gold:#E39B26;--card:#FFFFFF;
+--wood:#E3C394;--wood2:#D9B583;--line:#FFFFFF;--team:#12307A;--teamInk:#FFFFFF;--ball:#E5711E;--trail:#151B2B;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10141C;--ink:#E7EAF0;--soft:#9BA4B6;--rule:#262D3A;--navy:#7C9BEA;--gold:#F0B04A;--card:#171C26;
+--wood:#7A5E3C;--wood2:#715636;--line:#EDE3D3;--team:#6F92EE;--teamInk:#0C1220;--ball:#F08A3A;--trail:#F4EEE4}}
+:root[data-theme="dark"]{--bg:#10141C;--ink:#E7EAF0;--soft:#9BA4B6;--rule:#262D3A;--navy:#7C9BEA;--gold:#F0B04A;--card:#171C26;
+--wood:#7A5E3C;--wood2:#715636;--line:#EDE3D3;--team:#6F92EE;--teamInk:#0C1220;--ball:#F08A3A;--trail:#F4EEE4}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Barlow",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:620px;margin:0 auto;padding:22px 18px 44px}
+a{color:inherit}
+h1{font:600 clamp(30px,7vw,42px)/1.05 "Barlow Condensed","Arial Narrow",sans-serif;margin:0 0 10px}
+.lead{color:var(--soft);margin:0 0 22px;max-width:60ch}
+.voltar{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:500;font-size:15px;color:var(--navy);margin:0 0 18px;padding:6px 0}
+.voltar img{width:28px;height:28px}
+.voltar:focus-visible,button:focus-visible,.jogada:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.court{border-radius:6px;overflow:hidden}
+svg{display:block;width:100%;height:auto}
+.cap{font:500 19px/1.35 "Barlow Condensed","Arial Narrow",sans-serif;min-height:52px;margin:14px 0 12px}
+.cap small{display:block;font:400 14px/1.4 "Barlow",sans-serif;color:var(--soft);margin-bottom:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button{font:500 15px "Barlow",sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:9px 14px;min-height:42px;cursor:pointer}
+button:hover{border-color:var(--soft)}
+button.primary{background:var(--navy);color:var(--bg);border-color:var(--navy)}
+button[aria-pressed="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy);color:var(--navy)}
+.alts{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--rule)}
+.alts p{margin:0 0 8px;font-size:15px;color:var(--soft)}
+ol.fases{padding-left:22px;margin:26px 0 0}
+ol.fases li{margin:0 0 8px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--soft);margin-top:22px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend svg{width:30px;height:12px}
+.prog{display:flex;gap:4px;margin:12px 0 0}
+.prog i{flex:1;height:4px;border-radius:2px;background:var(--rule)}
+.prog i.on{background:var(--gold)}
+.hero{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin:8px 0 30px}
+.hero img{width:clamp(92px,24vw,128px);height:auto}
+.hero h1{font-size:clamp(46px,13vw,76px);line-height:.92;margin:0;color:var(--navy);letter-spacing:.5px}
+.equipa{display:block;margin-top:8px;font:600 clamp(22px,6vw,28px)/1 "Barlow Condensed","Arial Narrow",sans-serif;color:var(--ink);letter-spacing:1px}
+.epoca{display:inline-block;margin-top:10px;font:600 18px "Barlow Condensed","Arial Narrow",sans-serif;color:var(--ink);border-bottom:3px solid var(--gold);padding-bottom:2px}
+.lista{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.jogada{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 4px;border-bottom:1px solid var(--rule);text-decoration:none}
+.jogada strong{font:600 24px/1.1 "Barlow Condensed","Arial Narrow",sans-serif}
+.jogada span{font-size:14px;color:var(--soft)}
+a.jogada:hover strong{color:var(--navy)}
+a.jogada::after{content:"";width:9px;height:9px;border-right:2px solid var(--gold);border-top:2px solid var(--gold);transform:rotate(45deg);flex:none;margin-right:6px}
+.jogada.off strong{color:var(--soft)}
+.sec{font:600 15px "Barlow",sans-serif;color:var(--soft);margin:0 0 6px}
+footer{margin-top:34px;font-size:13px;color:var(--soft)}
